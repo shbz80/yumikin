@@ -1,0 +1,118 @@
+<mujoco model="abb_irb14000">
+    <compiler angle="radian" meshdir="/home/nikhilcd/gym/gym/envs/mujoco/assets/irb14000/collision/" />
+    <option gravity="0.0 0.0 -9.81" />
+    <actuator>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="100" joint="left_joint_1"/>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="-100" joint="left_joint_2"/>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="-100" joint="left_joint_3"/>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="100" joint="left_joint_4"/>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="-100" joint="left_joint_5"/>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="100" joint="left_joint_6"/>
+			<motor ctrllimited="true" ctrlrange="-1.0 1.0" gear="100" joint="left_joint_7"/>
+	</actuator>
+    <size njmax="500" nconmax="100" />
+    <asset>
+        <mesh name="base_link" file="base_link.stl" />
+        <mesh name="left_link_1" file="left_link_1.stl" />
+        <mesh name="left_link_2" file="left_link_2.stl" />
+        <mesh name="left_link_3" file="left_link_3.stl" />
+        <mesh name="left_link_4" file="left_link_4.stl" />
+        <mesh name="left_link_5" file="left_link_5.stl" />
+        <mesh name="left_link_6" file="left_link_6.stl" />
+        <mesh name="left_link_7" file="left_link_7.stl" />
+        <mesh name="smart_gripper" file="smart_gripper.stl" />
+    </asset>
+    <worldbody>
+		 <light cutoff="100" diffuse="1 1 1" dir="-0 0 -1.3" directional="true" exponent="1" pos="0 0 1.3" specular=".1 .1 .1"/>
+		 <geom conaffinity="1" condim="3" name="floor" pos="0 0 0" rgba="0.8 0.9 0.8 1" size="20 20 .125" type="plane" material="MatPlane"/>
+        <body name="base_link" pos="0 0 0">
+            <inertial pos="-0.166563 0.000564749 0.157593" quat="0.705495 0.0241168 0.021115 0.70799" mass="20.0" diaginertia="2.47419 2.1542 1.18657" />
+            <geom type="mesh" rgba="0.99 0.99 0.99 1" mesh="base_link" />
+            <body name="left_link_1" pos="0.02767 0.06163 0.39997">
+                <inertial pos="0.0670702 0.0533845 0.032408" quat="0.586289 0.544867 -0.590295 0.104579" mass="1.753" diaginertia="0.00561 0.00545 0.00289" />
+                <joint name="left_joint_1" pos="0 0 0" axis="0.813782 0.342033 0.469864" limited="true" range="-2.92343 2.92343" />
+                <geom type="mesh" rgba="0.99 0.99 0.99 1" mesh="left_link_1" />
+                <body name="left_link_2" pos="0.09359 0.08563 0.0565">
+                    <inertial pos="0.0593487 -0.0204712 0.0529489" quat="0.0877469 0.568602 0.299914 0.760949" mass="1.444" diaginertia="0.00743 0.00718 0.00225" />
+                    <joint name="left_joint_2" pos="0 0 0" axis="0.107006 0.706538 -0.699538" limited="true" range="-2.48709 0.741765" />
+                    <geom type="mesh" rgba="0.65 0.65 0.65 1" mesh="left_link_2" />
+                    <body name="left_link_3" pos="0.11922 0.00381 0.06637">
+                        <inertial pos="0.0904704 0.0368513 0.015287" quat="-0.268584 0.75487 -0.122661 0.585652" mass="0.936" diaginertia="0.00271 0.00241 0.00143" />
+                        <joint name="left_joint_3" pos="0 0 0" axis="0.813771 0.34207 0.469856" limited="true" range="-2.92343 2.92343" />
+                        <geom type="mesh" rgba="0.65 0.65 0.65 1" mesh="left_link_3" />
+                        <body name="left_link_4" pos="0.12649 0.0436 0.00883">
+                            <inertial pos="0.0457116 -0.0649365 0.0167288" quat="0.292431 0.841138 0.233127 0.390669" mass="0.723" diaginertia="0.00108 0.00277 0.00280" />
+                            <joint name="left_joint_4" pos="0 0 0" axis="0.106857 0.706733 -0.699364" limited="true" range="-2.13803 1.37881" />
+                            <geom type="mesh" rgba="0.65 0.65 0.65 1" mesh="left_link_4" />
+                            <body name="left_link_5" pos="0.10366 -0.09418 -0.0248">
+                                <inertial pos="0.0431806 -0.0358657 -0.0676445" quat="0.887362 -0.0781208 -0.227784 -0.393193" mass="0.330" diaginertia="0.000279 0.000797 0.000867" />
+                                <joint name="left_joint_5" pos="0 0 0" axis="0.571257 -0.619307 -0.538631" limited="true" range="-5.044 5.044" />
+                                <geom type="mesh" rgba="0.65 0.65 0.65 1" mesh="left_link_5" />
+                                <body name="left_link_6" pos="0.05912 -0.0626 -0.11428">
+                                    <inertial pos="-0.0022421 -0.0251269 0.0480539" quat="0.584447 0.436297 -0.64972 0.214317" mass="0.357" diaginertia="0.000298 0.000284 0.000292" />
+                                    <joint name="left_joint_6" pos="0 0 0" axis="0.106863 0.706797 -0.699298" limited="true" range="-1.51844 2.3911" />
+                                    <geom type="mesh" rgba="0.65 0.65 0.65 1" mesh="left_link_6" />
+                                    <body name="left_link_7" pos="0.01635 -0.01921 0.04313">
+                                        <inertial pos="0.0162753 -0.0173773 -0.015911" quat="0.441608 0.132696 -0.265455 0.846704" mass="0.072" diaginertia="2.01e-05 2.95e-05 2.79e-05" />
+                                        <joint name="left_joint_7" pos="0 0 0" axis="0.57121 -0.619367 -0.538612" limited="true" range="-3.97935 3.97935" />
+                                        <geom type="mesh" rgba="0.99 0.99 0.99 1" mesh="left_link_7" />
+                                        <body name="left_tool0" pos="0.02173 -0.02341 -0.02059" quat="0.297586 -0.0673761 0.874618 -0.376758">
+                                            <inertial pos="0.02173 -0.02341 -0.02059" quat="0.297586 -0.0673761 0.874618 -0.376758" mass="0" diaginertia="0 0 0" />
+                                            <body name="left_gripper_base" pos="0 0 0">
+                                                <inertial pos="-0.000101324 0.0012472 0.0438478" quat="0.698966 -0.00498392 -0.00496926 0.71512" mass="0.3" diaginertia="0.0003153 0.000263303 0.000182603" />
+                                                <geom type="mesh" rgba="0.99 0.99 0.99 1" mesh="smart_gripper" />
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+            </body>
+        </body>
+         <body name="g1" pos="0.034 0.3 -0.47" axisangle="0 1 0 0.05">
+            <geom name="g1" rgba="0.2 0.2 0.2 1" type="box" size="0.003 0.01 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="g2" pos="-0.034 0.3 -0.47" axisangle="0 1 0 -0.05">
+            <geom name="g2" rgba="0.2 0.2 0.2 1" type="box" size="0.003 0.01 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="g3" pos="0.0 0.334 -0.47" axisangle="1 0 0 -0.05">
+            <geom name="g3" rgba="0.2 0.2 0.2 1" type="box" size="0.01 0.003 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="g4" pos="0.0 0.266 -0.47" axisangle="1 0 0 0.05">
+            <geom name="g4" rgba="0.2 0.2 0.2 1" type="box" size="0.01 0.003 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="fl" pos="0.0 0.3 -0.55">
+            <geom name="fl" rgba="0.2 0.2 0.2 1" type="box" size="0.2 0.2 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="w1" pos="0.216 0.3 -0.45">
+            <geom name="w1" rgba="0.2 0.2 0.2 1" type="box" size="0.183 0.3 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="w2" pos="-0.216 0.3 -0.45">
+            <geom name="w2" rgba="0.2 0.2 0.2 1" type="box" size="0.183 0.3 0.05" contype="1" conaffinity="1" />
+        </body>
+
+        <body name="w3" pos="0.0 0.516 -0.45">
+            <geom name="w3" rgba="0.2 0.2 0.2 1" type="box" size="0.032 0.183 0.05" contype="1" conaffinity="1" />
+        </body>
+        
+        <body name="w4" pos="0.0 0.084 -0.45">
+            <geom name="w4" rgba="0.2 0.2 0.2 1" type="box" size="0.032 0.183 0.05" contype="1" conaffinity="1" />
+        </body>
+    </worldbody>
+    <asset>
+        <texture type="skybox" builtin="gradient" rgb1=".4 .5 .6" rgb2="0 0 0"
+            width="100" height="100"/>        
+        <texture builtin="flat" height="1278" mark="cross" markrgb="1 1 1" name="texgeom" random="0.01" rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" type="cube" width="127"/>
+        <texture builtin="checker" height="100" name="texplane" rgb1="0 0 0" rgb2="0.8 0.8 0.8" type="2d" width="100"/>
+        <material name="MatPlane" reflectance="0.01" shininess="1" specular="1" texrepeat="60 60" texture="texplane"/>
+        <material name="geom" texture="texgeom" texuniform="true"/>
+    </asset>
+</mujoco>
