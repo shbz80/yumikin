@@ -2,7 +2,7 @@
 import hrl_geom.transformations as trans
 # from hrl_geom.pose_converter import PoseConv
 from urdf_parser_py.urdf import Robot
-from pykdl_utils.kdl_kinematics3 import KDLKinematics
+from pykdl_utils.kdl_kinematics import KDLKinematics
 # from pykdl_utils.kdl_parser import *
 import copy
 import numpy as np
