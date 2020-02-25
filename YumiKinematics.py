@@ -87,6 +87,24 @@ class YumiKinematics(object):
         J_A_d = YumiKinematics.jacobian_geometric_to_analytic(Rd_mat_dot_J_G, phi_d_e, self.euler_string)
         return J_A_d
 
+    def get_cart_intertia_d(self, q):
+        # od, Rd = self.get_fwd_mat(self.goal_joint)
+        # od = self.od
+        Rd = self.Rd
+        oe, Re = self.get_fwd_mat(q)
+
+        # o_d_e = Rd.T.dot(oe - od)
+        R_d_e = Rd.T.dot(Re)
+        phi_d_e = trans.euler_from_matrix(R_d_e, self.euler_string)
+        phi_d_e = np.array(phi_d_e).reshape(-1)
+        J_A_d = self.get_analytical_jacobian_d(q, phi_d_e, Rd)
+        M_q = self.kdl_kin.inertia(q)
+        J_A_d_T = J_A_d.T
+        M_q_inv_dot_J_A_d_T = np.linalg.pinv(M_q).dot(J_A_d_T)
+        M_d_x = np.linalg.pinv(J_A_d.dot(M_q_inv_dot_J_A_d_T))
+        return M_d_x
+
+
     def get_cart_error_frame_terms(self, q, q_dot):
         # od, Rd = self.get_fwd_mat(self.goal_joint)
         od = self.od
