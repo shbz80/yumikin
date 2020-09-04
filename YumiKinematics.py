@@ -23,8 +23,8 @@ class YumiKinematics(object):
         self.ik_cl_alpha = 0.1
         self.ik_cl_max_itr = 100
         self.od, self.Rd = self.get_fwd_mat(self.goal_joint)
-        print('od', self.od)
-        print('rd',self.Rd)
+        # print('od', self.od)
+        # print('rd',self.Rd)
 
     def fwd_pose(self, q):
         Tr = self.kdl_kin.forward(q, end_link=self.end_link, base_link=self.base_link)
